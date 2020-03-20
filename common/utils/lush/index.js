@@ -1,16 +1,16 @@
 import Request from './request'
-import store from '../../../store'
-import {
-	promptLogin, promptBind,weixin
-} from '../../login/login'
+// import store from '../../../store'
+// import {
+// 	promptLogin, promptBind,weixin
+// } from '../../login/login'
 
 const http = new Request()
 
 http.setConfig((config) => { 
 	// config.baseUrl = 'http://192.168.0.2/api'
-	config.baseUrl = 'https://www.paitume.com/api'
+	config.baseUrl = 'http://127.0.0.1:3000'
 	//#ifdef H5
-	config.baseUrl = '/api'
+	config.baseUrl = 'http://127.0.0.1:3000'
 	//#endif
 	config.header = {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -25,14 +25,14 @@ http.interceptor.request((config, cancel) => { /* 请求之前拦截器 */
 	}
 	
 	if(config.header.HOST != 'up-z2.qiniup.com'){
-		config.header.store_uid = store.getters.store_uid
-		config.header.store_appid = store.getters.store_appid
-		config.header.originfrom = store.getters.origin
-		config.header.platform = store.getters.platform
-		if(store.getters.is_login_in){
-			let token = '';
-			config.header.Authorization = `token ${store.getters.user_data.token}`
-		}
+		// config.header.store_uid = store.getters.store_uid
+		// config.header.store_appid = store.getters.store_appid
+		// config.header.originfrom = store.getters.origin
+		// config.header.platform = store.getters.platform
+		// if(store.getters.is_login_in){
+		// 	let token = '';
+		// 	config.header.Authorization = `token ${store.getters.user_data.token}`
+		// }
 	}
 	
 	return config
@@ -70,15 +70,15 @@ http.interceptor.response((response) => { /* 请求之后拦截器 */
 				showCancel:false,
 			});
 		} else if(error.statusCode == 401){
-			store.commit('remove_user_data') //token过期,清除用户信息
-			if(!store.getters.is_login_in){
-				// #ifdef H5 || APP-PLUS
-				promptLogin();
-				// #endif
-				// #ifdef MP-WEIXIN || MP-ALIPAY
-				promptBind()
-				// #endif
-			}
+			// store.commit('remove_user_data') //token过期,清除用户信息
+			// if(!store.getters.is_login_in){
+			// 	// #ifdef H5 || APP-PLUS
+			// 	promptLogin();
+			// 	// #endif
+			// 	// #ifdef MP-WEIXIN || MP-ALIPAY
+			// 	promptBind()
+			// 	// #endif
+			// }
 			
 	    }else if(error.response == null || err.response === undefined){
 			// uni.showModal({

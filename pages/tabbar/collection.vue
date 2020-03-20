@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		
+		我的收藏
 	</view>
 </template>
 
