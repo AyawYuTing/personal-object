@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-        个人页面
+        <button @click="gotoLogin">去登陆》</button>
 	</view>
 </template>
 
@@ -15,7 +15,11 @@
 
 		},
 		methods: {
-
+			gotoLogin(){
+				uni.navigateTo({
+					url: "/pages/login/index"
+				});
+			}
 		}
 	}
 </script>

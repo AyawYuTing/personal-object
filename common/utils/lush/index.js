@@ -1,8 +1,5 @@
 import Request from './request'
-// import store from '../../../store'
-// import {
-// 	promptLogin, promptBind,weixin
-// } from '../../login/login'
+import store from '../../../store'
 
 const http = new Request()
 
@@ -13,7 +10,7 @@ http.setConfig((config) => {
 	config.baseUrl = 'http://127.0.0.1:3000'
 	//#endif
 	config.header = {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type':'application/x-www-form-urlencoded'
 	}
 	return config
 })
@@ -25,14 +22,10 @@ http.interceptor.request((config, cancel) => { /* 请求之前拦截器 */
 	}
 	
 	if(config.header.HOST != 'up-z2.qiniup.com'){
-		// config.header.store_uid = store.getters.store_uid
-		// config.header.store_appid = store.getters.store_appid
-		// config.header.originfrom = store.getters.origin
-		// config.header.platform = store.getters.platform
-		// if(store.getters.is_login_in){
-		// 	let token = '';
-		// 	config.header.Authorization = `token ${store.getters.user_data.token}`
-		// }
+		if(store.getters.is_login_in){
+			let token = '';
+			config.header.Authorization = `token ${store.getters.user_data.token}`
+		}
 	}
 	
 	return config

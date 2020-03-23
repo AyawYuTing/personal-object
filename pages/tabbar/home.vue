@@ -12,12 +12,11 @@
 			}
 		},
 		onLoad() {
-			// this.addUser()
-			this.register()
+			this.get()
 		},
 		methods: {
-			register(){
-				this.$http.post('/users/register',{name:'Ayaw',tel:17363478582,psw:'123456'}).then(res=>{
+			get(){
+				this.$http.get('/users/get').then(res => {
 					console.log(res)
 				})
 			}

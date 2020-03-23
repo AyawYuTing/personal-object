@@ -1,21 +1,62 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [ 
 		{
-			"path": "pages/tabbar/home",
-			// "style": {
-			// 	"navigationBarTitleText": ""
-			// }
-			"app-plus": {
-				"titleNView": false,
-				"softinputNavBar": "none",
-				"scrollIndicator":"none"
+			"path": "pages/tabbar/home"
+		},
+		{
+			"path": "pages/tabbar/community",
+			"style": {
+				"navigationBarTitleText": "社区"
+			}
+		},
+		{
+			"path": "pages/tabbar/collection",
+			"style": {
+				"navigationBarTitleText": "收藏"
+			}
+		},
+		{
+			"path": "pages/tabbar/me",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录账号"
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "Z-文化乐园",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTitleText": "派图租赁",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar": {
+		"borderStyle": "white",
+		"backgroundColor": "#FFFFFF",
+		"color": "#333333",
+		"selectedColor": "#651FFF",
+		"list": [
+			{
+				"pagePath": "pages/tabbar/home",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/tabbar/community",
+				"text": "社区"
+			},
+			{
+				"pagePath": "pages/tabbar/collection",
+				"text": "收藏"
+			},
+			{
+				"pagePath": "pages/tabbar/me",
+				"text": "我的"
+			}
+		]
 	}
+	
 }
